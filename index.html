@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="INFLUENCEUSE STUDIO crée des sites web élégants et professionnels pour les créateurs, artistes, restaurants et entreprises.">
+<title>INFLUENCEUSE STUDIO | Votre présence en ligne</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #111111;
+  --white: #ffffff;
+  --grey: #a5a5a5;
+  --light: #f5f5f2;
+  --line: #e5e5e5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  font-weight: 400;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 13px;
+}
+
+.nav-links a:hover {
+  opacity: .55;
+}
+
+.nav-contact {
+  background: var(--black);
+  color: white;
+  padding: 12px 19px;
+  font-size: 12px;
+  letter-spacing: .5px;
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 650px;
+  background: var(--black);
+  color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "IS";
+  position: absolute;
+  right: 5%;
+  bottom: -150px;
+  font-family: 'Playfair Display', serif;
+  font-size: 550px;
+  line-height: 1;
+  color: rgba(255,255,255,.035);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  padding: 100px 0;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 11px;
+  color: #bdbdbd;
+  margin-bottom: 28px;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(48px, 7vw, 88px);
+  letter-spacing: -2px;
+}
+
+h1 span {
+  color: #aaa;
+  font-style: italic;
+}
+
+.hero-description {
+  color: #c4c4c4;
+  max-width: 510px;
+  margin: 28px 0 35px;
+  font-size: 16px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 24px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .7px;
+  transition: .2s;
+}
+
+.button-light {
+  background: white;
+  color: black;
+}
+
+.button-light:hover {
+  background: #dcdcdc;
+}
+
+.button-dark {
+  background: black;
+  color: white;
+}
+
+.button-dark:hover {
+  background: #444;
+}
+
+.section {
+  padding: 105px 0;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin-bottom: 55px;
+}
+
+.section-heading .eyebrow {
+  color: #777;
+}
+
+.section-heading h2 {
+  font-size: clamp(36px, 5vw, 55px);
+}
+
+.section-heading p {
+  color: #777;
+  margin-top: 18px;
+  max-width: 520px;
+}
+
+.services {
+  background: var(--light);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #dededb;
+  border: 1px solid #dededb;
+}
+
+.service-card {
+  background: var(--light);
+  padding: 38px;
+  min-height: 225px;
+}
+
+.service-number {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 30px;
+}
+
+.service-card h3 {
+  font-size: 27px;
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #777;
+  max-width: 390px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.portfolio-card {
+  background: #f1f1ef;
+  overflow: hidden;
+}
+
+.portfolio-visual {
+  min-height: 310px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-visual.dark {
+  background: #191919;
+  color: white;
+}
+
+.portfolio-visual.sand {
+  background: #d8c8b4;
+  color: #27211d;
+}
+
+.portfolio-visual.grey {
+  background: #dededc;
+  color: #222;
+}
+
+.portfolio-visual.white {
+  background: #f8f8f6;
+  color: #222;
+}
+
+.mockup-label {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(35px, 5vw, 58px);
+  line-height: 1.1;
+}
+
+.mockup-small {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.portfolio-info {
+  padding: 23px 25px;
+}
+
+.portfolio-info h3 {
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.portfolio-info p {
+  font-size: 13px;
+  color: #777;
+}
+
+.process {
+  background: var(--black);
+  color: white;
+}
+
+.process .section-heading .eyebrow {
+  color: #aaa;
+}
+
+.process .section-heading p {
+  color: #aaa;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.step {
+  border-top: 1px solid #555;
+  padding-top: 22px;
+}
+
+.step-number {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 28px;
+}
+
+.step h3 {
+  font-size: 23px;
+  margin-bottom: 12px;
+}
+
+.step p {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.about-visual {
+  min-height: 420px;
+  background: #171717;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.about-visual strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  font-weight: 500;
+}
+
+.about-copy h2 {
+  font-size: clamp(38px, 5vw, 55px);
+  margin-bottom: 25px;
+}
+
+.about-copy p {
+  color: #777;
+  margin-bottom: 18px;
+  font-size: 15px;
+}
+
+.contact {
+  background: var(--light);
+  text-align: center;
+}
+
+.contact .section-heading {
+  margin: 0 auto 35px;
+}
+
+.contact .section-heading p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.contact-details {
+  margin-top: 35px;
+  color: #777;
+  font-size: 13px;
+}
+
+footer {
+  background: #111;
+  color: white;
+  padding: 35px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+footer p {
+  color: #999;
+  font-size: 12px;
+}
+
+.footer-logo {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 760px) {
+  nav {
+    min-height: 70px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 25px 5%;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 590px;
+  }
+
+  .hero::after {
+    font-size: 300px;
+    bottom: -50px;
+  }
+
+  .section {
+    padding: 75px 0;
+  }
+
+  .service-grid,
+  .portfolio-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: auto;
+  }
+
+  .steps {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+  }
+
+  .about-grid {
+    gap: 35px;
+  }
+
+  .about-visual {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 430px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+  }
+
+  .contact-buttons .button {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#accueil">INFLUENCEUSE <span>STUDIO</span></a>
+
+      <button class="menu-toggle" aria-label="Ouvrir le menu" onclick="toggleMenu()">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+        <a href="#methode" onclick="closeMenu()">Notre méthode</a>
+        <a href="#contact" class="nav-contact" onclick="closeMenu()">Nous contacter</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="accueil">
+  <div class="container">
+    <div class="hero-content">
+      <p class="eyebrow">Studio de création digitale</p>
+      <h1>Votre image mérite une présence <span>à sa hauteur.</span></h1>
+      <p class="hero-description">
+        Nous créons des sites web élégants, modernes et professionnels
+        pour donner vie à votre marque et vous aider à vous démarquer.
+      </p>
+      <a class="button button-light" href="#contact">PARLONS DE VOTRE PROJET ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Ce que nous faisons</p>
+      <h2>Un site web pensé pour votre univers.</h2>
+      <p>Que vous soyez créateur, artiste ou entrepreneur, nous concevons une présence digitale qui reflète votre identité.</p>
+    </div>
+
+    <div class="service-grid">
+      <article class="service-card">
+        <p class="service-number">01 / CRÉATEURS</p>
+        <h3>Influenceurs & créateurs</h3>
+        <p>Un espace professionnel pour présenter votre univers, vos collaborations, vos statistiques et vos partenariats.</p>
+      </article>
+
+      <article class="service-card">
+        <p class="service-number">02 / MUSIQUE</p>
+        <h3>Artistes & musiciens</h3>
+        <p>Un site à votre image pour présenter vos titres, clips, dates de concert, actualités et contacts professionnels.</p>
+      </article>
+
+      <article class="service-card">
+        <p class="service-number">03 / RESTAURATION</p>
+        <h3>Restaurants & établissements</h3>
+        <p>Présentez votre menu, vos spécialités, vos horaires et facilitez les réservations de vos clients.</p>
+      </article>
+
+      <article class="service-card">
+        <p class="service-number">04 / ENTREPRISES</p>
+        <h3>Entrepreneurs & entreprises</h3>
+        <p>Valorisez vos services, rassurez vos prospects et donnez à votre activité une vitrine accessible partout.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Nos réalisations</p>
+      <h2>Des univers différents. Une même exigence.</h2>
+      <p>Chaque projet possède sa propre identité. Voici quelques concepts de présentation imaginés par notre studio.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <article class="portfolio-card">
+        <div class="portfolio-visual sand">
+          <div>
+            <span class="mockup-small">Beauty · Lifestyle · Inspiration</span>
+            <div class="mockup-label">Naya Belle</div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h3>Naya Belle</h3>
+          <p>Concept de site pour créatrice de contenu beauté et lifestyle.</p>
+        </div>
+      </article>
+
+      <article class="portfolio-card">
+        <div class="portfolio-visual dark">
+          <div>
+            <span class="mockup-small">Music · Art · Identity</span>
+            <div class="mockup-label">THE ARTIST</div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h3>Artist Website</h3>
+          <p>Concept de vitrine digitale pour artiste indépendant.</p>
+        </div>
+      </article>
+
+      <article class="portfolio-card">
+        <div class="portfolio-visual grey">
+          <div>
+            <span class="mockup-small">Restaurant · Taste · Experience</span>
+            <div class="mockup-label">Maison 229</div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h3>Maison 229</h3>
+          <p>Concept de site pour restaurant et expérience culinaire.</p>
+        </div>
+      </article>
+
+      <article class="portfolio-card">
+        <div class="portfolio-visual white">
+          <div>
+            <span class="mockup-small">Business · Vision · Growth</span>
+            <div class="mockup-label">YOUR BRAND</div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h3>Business Website</h3>
+          <p>Concept de présentation pour entreprise et entrepreneur.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section process" id="methode">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Notre méthode</p>
+      <h2>Simple, clair, efficace.</h2>
+      <p>De votre première idée à la mise en ligne, nous vous accompagnons à chaque étape.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step">
+        <p class="step-number">ÉTAPE 01</p>
+        <h3>Échange</h3>
+        <p>Nous découvrons votre activité, vos objectifs et vos besoins.</p>
+      </article>
+
+      <article class="step">
+        <p class="step-number">ÉTAPE 02</p>
+        <h3>Création</h3>
+        <p>Nous imaginons un design cohérent avec votre identité.</p>
+      </article>
+
+      <article class="step">
+        <p class="step-number">ÉTAPE 03</p>
+        <h3>Validation</h3>
+        <p>Vous découvrez le résultat et nous ajustons les détails ensemble.</p>
+      </article>
+
+      <article class="step">
+        <p class="step-number">ÉTAPE 04</p>
+        <h3>Mise en ligne</h3>
+        <p>Votre site est prêt à être partagé avec le monde entier.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="studio">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">
+        <strong>Make<br>your mark.</strong>
+      </div>
+
+      <div class="about-copy">
+        <p class="eyebrow">À propos du studio</p>
+        <h2>Votre ambition. Notre savoir-faire digital.</h2>
+        <p>INFLUENCEUSE STUDIO est un studio de création web qui accompagne les personnes et les marques souhaitant développer une présence professionnelle sur internet.</p>
+        <p>Notre approche associe design, simplicité et stratégie pour créer des sites qui racontent votre histoire et mettent votre activité en valeur.</p>
+        <a class="button button-dark" href="#contact">DÉMARRER UN PROJET ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Votre prochain projet commence ici</p>
+      <h2>Et si nous donnions vie à votre idée ?</h2>
+      <p>Parlez-nous de votre activité et de ce que vous souhaitez construire. Nous serons ravis d'échanger avec vous.</p>
+    </div>
+
+    <div class="contact-buttons">
+      <a class="button button-dark"
+         href="https://wa.me/2290196925233?text=Bonjour%20INFLUENCEUSE%20STUDIO%2C%20je%20souhaite%20discuter%20de%20mon%20projet%20de%20site%20web."
+         target="_blank" rel="noopener">
+        CONTACTER SUR WHATSAPP ↗
+      </a>
+
+      <a class="button button-dark"
+         href="mailto:arnaudlededji97@gmail.com?subject=Demande%20de%20création%20de%20site%20web">
+        ENVOYER UN E-MAIL ↗
+      </a>
+    </div>
+
+    <div class="contact-details">
+      <p>WhatsApp : +229 01 96 92 52 33</p>
+      <p>E-mail : arnaudlededji97@gmail.com</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div class="footer-logo">INFLUENCEUSE STUDIO</div>
+    <p>© 2026 INFLUENCEUSE STUDIO. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+
+function closeMenu() {
+  document.getElementById('navLinks').classList.remove('active');
+}
+</script>
+
+</body>
+</html>
